@@ -117,12 +117,9 @@ def _is_no_proxy_host(hostname: str, no_proxy: Optional[list]) -> bool:
         return True
     if _is_ip_address(hostname):
         return any(
-            [
-                _is_address_in_network(hostname, subnet)
+            _is_address_in_network(hostname, subnet)
                 for subnet in no_proxy
-                if _is_subnet_address(subnet)
-            ]
-        )
+                if _is_subnet_address(subnet))
     for domain in [domain for domain in no_proxy if domain.startswith(".")]:
         if hostname.endswith(domain):
             return True
