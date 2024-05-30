@@ -224,8 +224,6 @@ def _open_socket(addrinfo_list, sockopt, timeout):
                 continue
             else:
                 break
-        else:
-            continue
         break
     else:
         if err:
